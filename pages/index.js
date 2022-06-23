@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styled from "styled-components";
+import img from '../public/images/profile_best.png';
 
 // Header
 const Header = styled.div`
@@ -76,10 +77,38 @@ const Box =  styled.div`
   }
 `
 
+// SectionTwo
+const SectionTwo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F6F6F6;
+
+  h2 {
+    text-align: center;
+  }
+
+  span {
+    display: block;
+  }
+`
+
+const Review = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  background-color: aqua;
+`
+
+const Img = styled.div`
+  position: relative;
+  background-color: red;
+`
+
 export default function Home() {
   return (
     <>
-    <test></test>
       <Header>
         <Logo></Logo>
         <Menu>
@@ -113,6 +142,19 @@ export default function Home() {
           <p>공구 취소시 100% 환불</p>
         </Box>
       </SectionOne>
+
+      <SectionTwo>
+        <h2><span>이미 많은 분들이</span>공연공구에 참여하고 있습니다.</h2>
+
+        <Review>
+          <Img>
+            <Image src={img} width={50} height={50} layout='intrinsic'/>
+          </Img>
+          <p>이름</p>
+          <div>별점</div>
+          <p>리뷰 내용</p>
+        </Review>
+      </SectionTwo>
     </>
   )
 }
