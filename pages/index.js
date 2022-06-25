@@ -21,7 +21,7 @@ const Menu = styled.div`
   position: absolute;
   display: flex;
   width: 13vw;
-  background-color: red;
+  background-color: #F95B4F;
   color: #000;
   font-size: 12px;
   font-weight: 500;
