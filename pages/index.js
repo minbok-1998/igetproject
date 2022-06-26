@@ -1,14 +1,27 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styled from "styled-components";
+
+// Header 이미지
+import logo from '../public/images/logo.png';
+
+// SectionOne 이미지
+import list1 from '../public/images/list1.png';
+import list2 from '../public/images/list2.png';
+import list3 from '../public/images/list3.png';
+import list4 from '../public/images/list4.png';
+
+// SectionTwo 이미지
 import img from '../public/images/profile_best.png';
+
+import review from '../public/db/review';
 
 // Header
 const Header = styled.div`
   display: flex;
   height: 8vh;
-  background-color: pink;
   align-items: center;
+  padding: 0 0 0 30px;
 `
 
 const Logo = styled.div`
@@ -21,7 +34,6 @@ const Menu = styled.div`
   position: absolute;
   display: flex;
   width: 13vw;
-  background-color: #F95B4F;
   color: #000;
   font-size: 12px;
   font-weight: 500;
@@ -34,7 +46,7 @@ const LoginBtn = styled.button`
   height: 30px;
   padding: 0 10px 0 10px;
   background-color: #FFEBEC;
-  color: red;
+  color: #F95B4F;
   font-weight: 700;
   border: none;
   border-radius: 5px;
@@ -45,6 +57,7 @@ const SectionOne = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 30px 0 10px 0;
   
   h1 {
     font-size: 24px;
@@ -63,17 +76,13 @@ const Box =  styled.div`
   background-color: #F7F7F7;
   align-items: center;
   margin: 0 0 10px 0;
-
-  img {
-    width: 30px;
-    height: 30px;
-    background-color: red;
-    margin: 0 10px 0 10px;
-  }
+  padding: 0 0 0 10px;
 
   p {
     font-size: 14px;
+    font-weight: 700;
     color: #000;
+    padding: 0 0 0 10px;
   }
 `
 
@@ -83,9 +92,11 @@ const SectionTwo = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #F6F6F6;
+  padding: 30px 0 30px 0;
 
   h2 {
     text-align: center;
+    margin: 0 0 50px 0;
   }
 
   span {
@@ -98,19 +109,31 @@ const Review = styled.div`
   flex-direction: column;
   align-items: center;
   width: 80%;
-  background-color: aqua;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 3px 2px 15px 1px #C1C1C1; 
+  box-shadow: 3px 2px 15px 1px #C1C1C1;
+  border-radius: 10px;
+
+  p {
+    text-align: center;
+  }
+
+  p:nth-child(3) {
+    color: #F95B4F;
+  }
 `
 
 const Img = styled.div`
   position: relative;
-  background-color: red;
+  margin: -25px 0 0 0;
 `
 
 export default function Home() {
+
   return (
     <>
       <Header>
-        <Logo></Logo>
+        <Image src={logo} width={55} height={18} layout='intrinsic' />
         <Menu>
           <p>공구참여</p>
           <p>공연공구란?</p>
@@ -126,19 +149,19 @@ export default function Home() {
           왜 참여해야하죠?
         </h1>
         <Box>
-          <img src="" alt="" />
+          <Image src={list1} width={30} height={30} layout='intrinsic' />
           <p>최고 배우들의 엄선된 공연</p>
         </Box>
         <Box>
-          <img src="" alt="" />
+          <Image src={list3} width={30} height={30} layout='intrinsic' />
           <p>매진 걱정없는 선예매</p>
         </Box>
         <Box>
-          <img src="" alt="" />
+          <Image src={list4} width={30} height={30} layout='intrinsic' />
           <p>시야공유 서비스에서 인증된 좋은좌석</p>
         </Box>
         <Box>
-          <img src="" alt="" />
+          <Image src={list2} width={30} height={30} layout='intrinsic' />
           <p>공구 취소시 100% 환불</p>
         </Box>
       </SectionOne>
@@ -150,9 +173,13 @@ export default function Home() {
           <Img>
             <Image src={img} width={50} height={50} layout='intrinsic'/>
           </Img>
-          <p>이름</p>
-          <div>별점</div>
-          <p>리뷰 내용</p>
+          <strong>뮤지컬 배우 전병준님</strong>
+          <p>★★★★★</p>
+          <p>
+            잡기 힘든 뮤지컬임에도 <strong>좋은 자리를 선예매로</strong><br /> 
+            내자리로 잡을 수 있는데 <strong>할인</strong>까지 됩니다!<br />
+            <strong>시야 걱정없이</strong> 편하게 볼 수 있어요.
+          </p>
         </Review>
       </SectionTwo>
     </>
