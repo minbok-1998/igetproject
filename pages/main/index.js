@@ -1,4 +1,65 @@
+import Image from 'next/image';
 import styled from "styled-components";
+
+// SectionOne 이미지
+import list1 from '../../public/images/list1.png';
+import list2 from '../../public/images/list2.png';
+import list3 from '../../public/images/list3.png';
+import list4 from '../../public/images/list4.png';
+
+import Review from '../../components/review';
+
+// SectionOne
+const SectionOne = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0 10px 0;
+  
+  h1 {
+    font-size: 24px;
+    color: #000;
+    text-align: center;
+  }
+
+  span {
+    display: block;
+  }
+`
+
+const Box =  styled.div`
+  display: flex;
+  width: 30%;
+  background-color: #F7F7F7;
+  align-items: center;
+  margin: 0 0 10px 0;
+  padding: 0 0 0 10px;
+
+  p {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    padding: 0 0 0 10px;
+  }
+`
+
+// SectionTwo
+const SectionTwo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F6F6F6;
+  padding: 30px 0 30px 0;
+
+  h2 {
+    text-align: center;
+    margin: 0 0 50px 0;
+  }
+
+  span {
+    display: block;
+  }
+`
 
 export default function MainPage() {
     return (
@@ -31,18 +92,7 @@ export default function MainPage() {
             <SectionTwo>
               <h2><span>이미 많은 분들이</span>공연공구에 참여하고 있습니다.</h2>
         
-              <Review>
-                <Img>
-                  <Image src={img} width={50} height={50} layout='intrinsic'/>
-                </Img>
-                <strong>뮤지컬 배우 전병준님</strong>
-                <p>★★★★★</p>
-                <p>
-                  잡기 힘든 뮤지컬임에도 <strong>좋은 자리를 선예매로</strong><br /> 
-                  내자리로 잡을 수 있는데 <strong>할인</strong>까지 됩니다!<br />
-                  <strong>시야 걱정없이</strong> 편하게 볼 수 있어요.
-                </p>
-              </Review>
+              <Review />
             </SectionTwo>
         </>
     )
