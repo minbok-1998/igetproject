@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import styled from "styled-components";
 
-// SectionOne 이미지
+//이미지
 import list1 from '../../public/images/list1.png';
 import list2 from '../../public/images/list2.png';
 import list3 from '../../public/images/list3.png';
 import list4 from '../../public/images/list4.png';
+import main_back2 from '../../public/images/main_back2.png'
 
 import Review from '../../components/review';
 
@@ -61,6 +62,19 @@ const SectionTwo = styled.div`
   }
 `
 
+const SectionThree =  styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F6F6F6;
+  padding: 30px 0 30px 0;
+  text-align: center;
+
+  p {
+    margin: -10px 0 20px 0;
+  }
+`
+
 export default function MainPage() {
     return (
         <>
@@ -91,9 +105,23 @@ export default function MainPage() {
         
             <SectionTwo>
               <h2><span>이미 많은 분들이</span>공연공구에 참여하고 있습니다.</h2>
-        
               <Review />
             </SectionTwo>
+
+            <SectionThree>
+              <h2>
+                믿을 수 있는<br/>
+                아이겟 공연공구!
+              </h2>
+              <p>
+                '아이겟' 어플 <strong>다운로드 17만건, 사용자 13만명</strong><br/>
+                아이겟 공연공구는 2014년부터 뮤지컬, 콘서트<br/>
+                페스티벌 등 900여 공연의 티켓을 판매한<br/>
+                <strong>공연전문기업 (주)엔터크라우드</strong>에서<br/>
+                운영하는 서비스 입니다.
+              </p>
+              <Image src={main_back2} width={150} height={150} layout='intrinsic' />
+            </SectionThree>
         </>
     )
 }

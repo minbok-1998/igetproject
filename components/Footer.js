@@ -43,11 +43,14 @@ const Snsarea = styled.div`
     justify-content: space-between;
 
     div {
+        display: flex;
         width: 70px;
         height: 70px;
         color: #fff;
         border: 2px solid #fff;
         border-radius: 50%;
+        align-items: center;
+        justify-content: center;
     }
 `
 
