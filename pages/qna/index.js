@@ -10,11 +10,12 @@ export default function Qna() {
             method: 'get',
             url: `/api/qna`,
             params: {
-                // loadIndex: 5,
-                loadAmount: 1
+                // loadIndex: 0,
+                loadAmount: 10
             }
           })
         .then(function(res){
+            console.log(res.data.data)
             setData(res.data.data);
         })
         .then(function(err){
@@ -22,22 +23,67 @@ export default function Qna() {
         })
     },[])
 
-    // console.log(data[0].base[0].title)
+    // console.log(data)
 
-    const Title = styled.p``
+    const Wrap = styled.div`
+        display: flex;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+    `
 
-    const Content = styled.p``
+    const Cont = styled.div`
+        width: 100%;
+        height: auto;
+    `
+
+    const Question = styled.div`
+        padding: 0;
+        margin: 0;
+    `
+
+    const Title = styled.div`
+        background-color: #FFF;
+        padding: 20px 30px;
+
+        input {
+            /* display: none; */
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    `
+
+    const Content = styled.div`
+        p {
+            margin: 0;
+            padding: 10px 30px;
+            background-color: #F6F6F6;
+        }
+    `
 
     return (
-        <>
-        {data.map((test) => {
-            return (
-                <>
-                    <Title>{test.base[0].title}</Title>
-                    <Content>{test.base[0].content}</Content>
-                </>
-            )
-        })}
-        </>
+        <Wrap>
+        <h1>자주 묻는 질문</h1>
+        <Cont>
+            {data.map((test) => {
+                return (
+                    <Question>
+                        <Title>
+                            <label>{test.base[0].title}
+                                <input type="radio" name="qna"/>
+                            </label>
+                        </Title>
+                        <Content>
+                            <p>{test.base[0].content}</p>
+                        </Content>
+                    </Question>
+                )
+            })}
+        </Cont>
+        </Wrap>
     )
 }
