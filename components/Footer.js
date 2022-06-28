@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import Image from "next/image";
+import facebook from '../public/images/facebook.png'
+import insta from '../public/images/insta.png'
+import youtube from '../public/images/youtube.png'
+import blog from '../public/images/blog.png'
 
 const Wrap = styled.div`
     display: flex;
@@ -72,10 +77,18 @@ export default function Footer() {
                 </Copyright>
             </Textarea>
             <Snsarea>
-                <div>페북</div>
-                <div>인스타</div>
-                <div>유튜브</div>
-                <div>블로그</div>
+                <div>
+                    <Image src={facebook} width={32} height={32} layout='intrinsic' />
+                </div>
+                <div>
+                    <Image src={insta} width={32} height={32} layout='intrinsic' />
+                </div>
+                <div>
+                    <Image src={youtube} width={32} height={32} layout='intrinsic' />
+                </div>
+                <div>
+                    <Image src={blog} width={32} height={32} layout='intrinsic' />
+                </div>
             </Snsarea>
         </Wrap>
     )

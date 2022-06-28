@@ -5,8 +5,8 @@ export default function Home() {
 
   return (
     <>
-      {/* <Main></Main> */}
-      <Qna></Qna>
+      <Main></Main>
+      {/* <Qna></Qna> */}
     </>
   )
 }
