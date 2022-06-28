@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function Qna() {
     const [data, setData] = useState([]);
+    const [isChecked, setIsChecked] = useState(false);
 
     useEffect(() => {
         axios({
@@ -23,8 +24,6 @@ export default function Qna() {
         })
     },[])
 
-    // console.log(data)
-
     const Wrap = styled.div`
         display: flex;
         height: auto;
@@ -38,16 +37,15 @@ export default function Qna() {
     `
 
     const Question = styled.div`
-        padding: 0;
-        margin: 0;
-    `
-
-    const Title = styled.div`
         background-color: #FFF;
         padding: 20px 30px;
 
         input {
-            /* display: none; */
+            display: none;
+            
+            :checked + div {
+                height: auto;
+            }
         }
 
         label {
@@ -55,15 +53,14 @@ export default function Qna() {
             font-weight: 700;
             cursor: pointer;
         }
-    `
 
-    const Content = styled.div`
-        p {
-            margin: 0;
-            padding: 10px 30px;
+        div {
+            height: 0;
+            overflow: hidden;
             background-color: #F6F6F6;
+            margin: 20px 0 0 0;
         }
-    `
+        `
 
     return (
         <Wrap>
@@ -72,14 +69,17 @@ export default function Qna() {
             {data.map((test) => {
                 return (
                     <Question>
-                        <Title>
-                            <label>{test.base[0].title}
-                                <input type="radio" name="qna"/>
-                            </label>
-                        </Title>
-                        <Content>
-                            <p>{test.base[0].content}</p>
-                        </Content>
+                        <label>
+                            {test.base[0].title}
+                            <input 
+                                type="radio" 
+                                name="qna"
+                                // onChange={(e) => checkHandler(e)}
+                            />
+                            <div>
+                                <p>{test.base[0].content}</p>
+                            </div>
+                        </label>
                     </Question>
                 )
             })}
